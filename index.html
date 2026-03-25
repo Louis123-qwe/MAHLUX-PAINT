@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mahlux Paint — Premium paints and professional painting services for residential and industrial purposes in Cross River State, Nigeria.">
+    <title>Mahlux Paint | Premium Paints & Professional Services</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+    <div class="nav-inner">
+        <a href="index.html" class="logo">
+            <span class="logo-m">M</span>AHLUX<span class="logo-paint">PAINT</span>
+        </a>
+        <div class="nav-links" id="nav-links">
+            <a href="#products">Products</a>
+            <a href="#services">Services</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="nav-actions">
+            <a href="#products" class="btn-quote">Get a Quote</a>
+            <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+    <div class="hero-bg">
+        <div class="hero-blob blob1"></div>
+        <div class="hero-blob blob2"></div>
+        <div class="hero-blob blob3"></div>
+    </div>
+    <div class="hero-inner">
+        <div class="hero-badge">Cross River State · Since 2020</div>
+        <h1 class="hero-h1">
+            Where Colour<br>
+            <em>Meets Craftsmanship.</em>
+        </h1>
+        <p class="hero-sub">Premium paint products and professional painting services for residential and industrial purposes. Trusted by homeowners and contractors across Cross River State.</p>
+        <div class="hero-ctas">
+            <a href="#products" class="btn-primary-lg">Shop Products</a>
+            <a href="#services" class="btn-outline-lg">Our Services</a>
+        </div>
+        <div class="hero-stats">
+            <div class="hstat"><span class="hstat-n">12+</span><span class="hstat-l">Paint Types</span></div>
+            <div class="hstat-div"></div>
+            <div class="hstat"><span class="hstat-n">500+</span><span class="hstat-l">Projects Done</span></div>
+            <div class="hstat-div"></div>
+            <div class="hstat"><span class="hstat-n">100%</span><span class="hstat-l">Satisfaction</span></div>
+        </div>
+    </div>
+    <div class="hero-visual">
+        <div class="paint-splash">
+            <div class="splash-ring r1"></div>
+            <div class="splash-ring r2"></div>
+            <div class="splash-ring r3"></div>
+            <div class="splash-center">
+                <span>M</span>
+            </div>
+        </div>
+        <div class="color-swatches">
+            <div class="swatch" style="background:#e63946;"></div>
+            <div class="swatch" style="background:#2a9d8f;"></div>
+            <div class="swatch" style="background:#e9c46a;"></div>
+            <div class="swatch" style="background:#264653;"></div>
+            <div class="swatch" style="background:#f4a261;"></div>
+            <div class="swatch" style="background:#457b9d;"></div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES STRIP -->
+<div class="services-strip">
+    <div class="strip-inner">
+        <div class="strip-item">🏠 Interior & Exterior House Paint</div>
+        <div class="strip-dot">·</div>
+        <div class="strip-item">🎨 3D Interior Designing</div>
+        <div class="strip-dot">·</div>
+        <div class="strip-item">🖌️ Professional Painting</div>
+        <div class="strip-dot">·</div>
+        <div class="strip-item">🏗️ Industrial Services</div>
+        <div class="strip-dot">·</div>
+        <div class="strip-item">🎭 Faux & Decorative Painting</div>
+        <div class="strip-dot">·</div>
+        <div class="strip-item">🪟 Wallpaper & Panel Installation</div>
+    </div>
+</div>
+
+<!-- PRODUCTS -->
+<section class="products-section" id="products">
+    <div class="section-inner">
+        <div class="section-tag">Our Products</div>
+        <h2 class="section-h2">Premium Paint Collection</h2>
+        <p class="section-p">Every product is sourced for quality, durability and performance. Suitable for all residential and industrial purposes.</p>
+
+        <!-- FILTERS -->
+        <div class="prod-filters">
+            <button class="pf-btn active" onclick="filterProducts('all',this)">All Products</button>
+            <button class="pf-btn" onclick="filterProducts('paint',this)">Paints</button>
+            <button class="pf-btn" onclick="filterProducts('service',this)">Services</button>
+            <button class="pf-btn" onclick="filterProducts('finishing',this)">Finishing</button>
+        </div>
+
+        <!-- SEARCH -->
+        <div class="prod-search">
+            <input type="text" id="prod-search" placeholder="Search products…" oninput="searchProducts(this.value)">
+            <span class="search-icon">🔍</span>
+        </div>
+
+        <!-- PRODUCT GRID -->
+        <div class="prod-grid" id="prod-grid">
+            <!-- Products injected by JS -->
+        </div>
+    </div>
+</section>
+
+<!-- CART SIDEBAR -->
+<div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+<div class="cart-sidebar" id="cart-sidebar">
+    <div class="cart-header">
+        <h3>Your Cart</h3>
+        <button onclick="toggleCart()" class="cart-close">✕</button>
+    </div>
+    <div class="cart-items" id="cart-items">
+        <div class="cart-empty">Your cart is empty</div>
+    </div>
+    <div class="cart-footer" id="cart-footer" style="display:none;">
+        <div class="cart-total">
+            <span>Total:</span>
+            <span id="cart-total-amount">₦0</span>
+        </div>
+        <button class="btn-whatsapp" onclick="orderViaWhatsApp()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Order via WhatsApp
+        </button>
+        <p class="cart-note">Payment completed via WhatsApp after order confirmation</p>
+    </div>
+</div>
+
+<!-- CART FAB -->
+<button class="cart-fab" id="cart-fab" onclick="toggleCart()">
+    🛒 <span class="cart-count" id="cart-count">0</span>
+</button>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+    <div class="section-inner">
+        <div class="section-tag">What We Do</div>
+        <h2 class="section-h2">Professional Services</h2>
+        <p class="section-p">From colour consultation to full project execution — we handle every aspect of your painting needs.</p>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="sc-icon">🏠</div>
+                <h3>Interior & Exterior House Paint</h3>
+                <p>Full residential painting services — living rooms, bedrooms, kitchens, facades and compound walls. We deliver clean, lasting finishes.</p>
+                <a href="#contact" class="sc-cta">Get Quote →</a>
+            </div>
+            <div class="service-card featured">
+                <div class="sc-badge">Most Popular</div>
+                <div class="sc-icon">🎨</div>
+                <h3>3D Interior Designing</h3>
+                <p>See your space transformed before a single brush stroke. Our 3D visualisation service lets you choose colours and layouts with confidence.</p>
+                <a href="#contact" class="sc-cta">Get Quote →</a>
+            </div>
+            <div class="service-card">
+                <div class="sc-icon">🏗️</div>
+                <h3>Screeding Works & Putty</h3>
+                <p>Professional surface preparation including screeding, screeding putty application and surface levelling for perfect paint adhesion.</p>
+                <a href="#contact" class="sc-cta">Get Quote →</a>
+            </div>
+            <div class="service-card">
+                <div class="sc-icon">🎭</div>
+                <h3>Faux & Decorative Painting</h3>
+                <p>Unique decorative finishes that transform ordinary walls into artistic statements. Marble effects, textured finishes and custom patterns.</p>
+                <a href="#contact" class="sc-cta">Get Quote →</a>
+            </div>
+            <div class="service-card">
+                <div class="sc-icon">🪟</div>
+                <h3>Wallpaper & Panel Installation</h3>
+                <p>Professional installation of wallpapers and decorative panels. Wide range of designs and textures available to complement your space.</p>
+                <a href="#contact" class="sc-cta">Get Quote →</a>
+            </div>
+            <div class="service-card">
+                <div class="sc-icon">🎯</div>
+                <h3>Colour Consultation</h3>
+                <p>Not sure which colours work together? Our expert colour consultants help you create the perfect palette for every room and purpose.</p>
+                <a href="#contact" class="sc-cta">Get Quote →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- COLOUR PALETTE SHOWCASE -->
+<section class="palette-section">
+    <div class="section-inner">
+        <div class="section-tag">Colour Range</div>
+        <h2 class="section-h2">Find Your Perfect Colour</h2>
+        <p class="section-p">We stock and mix hundreds of colours. These are some of our most popular palettes for Nigerian homes and offices.</p>
+        <div class="palette-grid">
+            <div class="palette-card" style="--pc:#264653">
+                <div class="pc-swatch"></div>
+                <div class="pc-info"><span class="pc-name">Deep Ocean</span><span class="pc-code">#264653</span></div>
+            </div>
+            <div class="palette-card" style="--pc:#2a9d8f">
+                <div class="pc-swatch"></div>
+                <div class="pc-info"><span class="pc-name">Teal Breeze</span><span class="pc-code">#2A9D8F</span></div>
+            </div>
+            <div class="palette-card" style="--pc:#e9c46a">
+                <div class="pc-swatch"></div>
+                <div class="pc-info"><span class="pc-name">Sandy Gold</span><span class="pc-code">#E9C46A</span></div>
+            </div>
+            <div class="palette-card" style="--pc:#f4a261">
+                <div class="pc-swatch"></div>
+                <div class="pc-info"><span class="pc-name">Warm Amber</span><span class="pc-code">#F4A261</span></div>
+            </div>
+            <div class="palette-card" style="--pc:#e63946">
+                <div class="pc-swatch"></div>
+                <div class="pc-info"><span class="pc-name">Bold Crimson</span><span class="pc-code">#E63946</span></div>
+            </div>
+            <div class="palette-card" style="--pc:#457b9d">
+                <div class="pc-swatch"></div>
+                <div class="pc-info"><span class="pc-name">Steel Blue</span><span class="pc-code">#457B9D</span></div>
+            </div>
+            <div class="palette-card" style="--pc:#6d6875">
+                <div class="pc-swatch"></div>
+                <div class="pc-info"><span class="pc-name">Dusty Mauve</span><span class="pc-code">#6D6875</span></div>
+            </div>
+            <div class="palette-card" style="--pc:#b5838d">
+                <div class="pc-swatch"></div>
+                <div class="pc-info"><span class="pc-name">Rose Petal</span><span class="pc-code">#B5838D</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WHY US -->
+<section class="why-section" id="about">
+    <div class="why-inner">
+        <div class="why-text">
+            <div class="section-tag">Why Mahlux</div>
+            <h2 class="section-h2">Built on Quality.<br>Driven by Results.</h2>
+            <p class="section-p">We are not just a paint shop. We are a full-service colour and finishing company committed to transforming every space we touch.</p>
+            <div class="why-points">
+                <div class="why-point">
+                    <div class="wp-icon">✓</div>
+                    <div>
+                        <h4>Premium Quality Products</h4>
+                        <p>Every paint and material we stock meets professional grade standards for durability and finish.</p>
+                    </div>
+                </div>
+                <div class="why-point">
+                    <div class="wp-icon">✓</div>
+                    <div>
+                        <h4>Expert Application Team</h4>
+                        <p>Our painters are trained professionals who deliver clean, precise results every single time.</p>
+                    </div>
+                </div>
+                <div class="why-point">
+                    <div class="wp-icon">✓</div>
+                    <div>
+                        <h4>Residential & Industrial</h4>
+                        <p>From a single bedroom to a full factory compound — we handle projects of every scale.</p>
+                    </div>
+                </div>
+                <div class="why-point">
+                    <div class="wp-icon">✓</div>
+                    <div>
+                        <h4>Located in Cross River State</h4>
+                        <p>Beside Mary Knoll College Church, Okpoma Road, Okuku Yala LGA — serving the entire region.</p>
+                    </div>
+                </div>
+            </div>
+            <a href="#contact" class="btn-primary-lg" style="display:inline-flex;margin-top:32px;">Contact Us Today →</a>
+        </div>
+        <div class="why-visual">
+            <div class="why-card wc1">
+                <div class="wc-num">500+</div>
+                <div class="wc-label">Projects Completed</div>
+            </div>
+            <div class="why-card wc2">
+                <div class="wc-num">12+</div>
+                <div class="wc-label">Paint Varieties</div>
+            </div>
+            <div class="why-card wc3">
+                <div class="wc-num">5★</div>
+                <div class="wc-label">Customer Rating</div>
+            </div>
+            <div class="why-card wc4">
+                <div class="wc-num">100%</div>
+                <div class="wc-label">Satisfaction Guarantee</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+    <div class="section-inner">
+        <div class="section-tag">Get In Touch</div>
+        <h2 class="section-h2">Ready to Transform Your Space?</h2>
+        <p class="section-p">Contact us for a free consultation and quote. We respond within 24 hours.</p>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <div class="ci-item">
+                    <div class="ci-icon">📍</div>
+                    <div>
+                        <h4>Location</h4>
+                        <p>Beside Mary Knoll College Church, Okpoma Road, Okuku Yala LGA, Cross River State</p>
+                    </div>
+                </div>
+                <div class="ci-item">
+                    <div class="ci-icon">📞</div>
+                    <div>
+                        <h4>Phone</h4>
+                        <p><a href="tel:08105341168">08105341168</a></p>
+                        <p><a href="tel:09124508677">09124508677</a></p>
+                    </div>
+                </div>
+                <div class="ci-item">
+                    <div class="ci-icon">💬</div>
+                    <div>
+                        <h4>WhatsApp Orders</h4>
+                        <p>Place your order and complete payment directly via WhatsApp</p>
+                        <a href="https://wa.me/2348105341168" target="_blank" class="wa-btn">Chat on WhatsApp →</a>
+                    </div>
+                </div>
+                <div class="ci-item">
+                    <div class="ci-icon">🕐</div>
+                    <div>
+                        <h4>Business Hours</h4>
+                        <p>Monday – Saturday: 8:00 AM – 6:00 PM</p>
+                        <p>Sunday: By appointment</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form-wrap">
+                <h3>Send a Message</h3>
+                <div class="contact-form">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" id="cf-name" placeholder="Your full name">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" id="cf-phone" placeholder="08012345678">
+                    </div>
+                    <div class="form-group">
+                        <label>Service Needed</label>
+                        <select id="cf-service">
+                            <option value="">Select a service</option>
+                            <option>Emulsion Paint Purchase</option>
+                            <option>Interior House Painting</option>
+                            <option>Exterior House Painting</option>
+                            <option>3D Interior Designing</option>
+                            <option>Screeding Works</option>
+                            <option>Wallpaper Installation</option>
+                            <option>Colour Consultation</option>
+                            <option>Faux & Decorative Painting</option>
+                            <option>Industrial Painting</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea id="cf-message" placeholder="Tell us about your project…" rows="4"></textarea>
+                    </div>
+                    <button class="btn-send" onclick="sendViaWhatsApp()">
+                        Send via WhatsApp →
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="footer-logo"><span class="logo-m">M</span>AHLUX<span class="logo-paint">PAINT</span></div>
+                <p>Premium paints and professional painting services for residential and industrial purposes across Cross River State, Nigeria.</p>
+                <div class="footer-phones">
+                    <a href="tel:08105341168">📞 08105341168</a>
+                    <a href="tel:09124508677">📞 09124508677</a>
+                </div>
+            </div>
+            <div class="footer-cols">
+                <div class="footer-col">
+                    <h4>Products</h4>
+                    <a href="#products">Emulsion Paint</a>
+                    <a href="#products">Matte / Silk Paint</a>
+                    <a href="#products">Texcoat Paint</a>
+                    <a href="#products">Screeding Paint</a>
+                    <a href="#products">Screeding Putty</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <a href="#services">House Painting</a>
+                    <a href="#services">3D Interior Design</a>
+                    <a href="#services">Tarolean Services</a>
+                    <a href="#services">Faux Painting</a>
+                    <a href="#services">Colour Consultation</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Mahlux Paint. All Rights Reserved. Beside Mary Knoll College Church, Okpoma Road, Okuku Yala LGA, Cross River State.</p>
+            <p class="footer-dev">Website by <a href="https://assetstack.vercel.app" target="_blank">Louis Ekemini</a></p>
+        </div>
+    </div>
+</footer>
+
+<!-- PRODUCT MODAL -->
+<div class="prod-modal-overlay" id="prod-modal-overlay" onclick="closeProdModal()">
+    <div class="prod-modal" id="prod-modal" onclick="event.stopPropagation()">
+        <button class="prod-modal-close" onclick="closeProdModal()">✕</button>
+        <div id="prod-modal-content"></div>
+    </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
